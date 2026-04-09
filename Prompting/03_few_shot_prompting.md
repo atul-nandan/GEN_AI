@@ -78,3 +78,90 @@ Output => Negative
 
 🔹 "Chain-of-Thought (CoT) prompting" was introduced to improve performance on arithmetic, commonsense, and symbolic reasoning tasks.
 ```
+
+### 🔥🔥🔥**Structured Output in Few-Shot Prompting**
+```
+🔹"Structured output" in few-shot prompting means guiding the model to produce responses in a fixed and predictable format by providing formatted examples.  
+🔹 Instead of only showing what the answer should be, we also demonstrate "how the answer should look".  
+🔹 The model learns both:
+    - how to solve the task  
+    - how to structure the response  
+```
+
+### **Why Structured Output Matters**
+```
+🔹 Improves consistency across responses.  
+🔹 Makes outputs easier to parse programmatically.  
+🔹 Reduces ambiguity in model answers.  
+🔹 Helps automation systems reliably use LLM outputs.  
+🔹 Especially useful for APIs, databases, and workflows.  
+```
+
+### 🔥**How It Works?**
+```
+🔹 In few-shot prompting, examples are included in the prompt.  
+🔹 Each example follows the same structure.  
+🔹 The model copies this pattern when generating new responses.  
+```
+
+### **Example Without Structured Output**
+```
+Classify sentiment:
+Text: I love this movie
+Answer: Positive
+
+🔹 Output style may vary between responses.
+```
+
+### **Example With Structured Output**
+```
+Text: I love this movie
+Sentiment: Positive
+
+Text: This was terrible
+Sentiment: Negative
+
+Text: The acting was fine
+Sentiment:
+
+🔹 The model learns to always respond using: `Sentiment: <label>`
+```
+
+### **Common Structured Formats**
+```
+🔹 Bullet points  
+🔹 Tables  
+🔹 Key–Value pairs  
+🔹 JSON format  
+🔹 XML format  
+🔹 Step-by-step reasoning  
+```
+
+### **JSON Structured Output Example**
+```
+Question: What is 2 + 2?
+
+Answer:
+{
+"result": 4,
+"confidence": "high"
+}
+
+🔹 Future outputs will follow the same JSON structure. 
+```
+
+### **Best Practices**
+```
+🔹 Keep demonstration formats consistent.  
+🔹 Use clear field names.  
+🔹 Provide 2–5 examples for stability.  
+🔹 Avoid mixing multiple formats in one prompt.  
+🔹 Clearly show where the model should continue generating.  
+```
+
+### **Key Idea**
+```
+🔹 Few-shot prompting teaches "task behavior".  
+🔹 Structured output teaches "response format".  
+🔹 Combining both leads to more reliable and production-ready LLM responses.
+```
